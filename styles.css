@@ -70,6 +70,7 @@ a {
 
 .textGreenGradient {
   background-image: linear-gradient(135deg, var(--color-green), var(--color-lightgreen));
+  background-clip: inherit;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
