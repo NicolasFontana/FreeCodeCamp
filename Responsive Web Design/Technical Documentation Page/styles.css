@@ -10,8 +10,6 @@ body {
 }
 
 #navbar {
-  height: 100%;
-  width: 250px;
   display: flex;
   flex-direction: column;
   padding: 0 40px;
@@ -128,7 +126,6 @@ ul li, ol li {
 }
 
 @media only screen and (min-width: 720px) {
-  
   body {
     flex-direction: row;
   }
@@ -139,13 +136,23 @@ ul li, ol li {
   }
 
   #navbar {
+    height: 100%;
+    width: 260px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
     align-items: flex-start;
     justify-content: flex-start;
   }
-  
+
   #navbar header {
     display: flex;
     text-align: center;
     margin: 0;
+  }
+
+  #main-doc {
+    margin-left: 260px
   }
 }
