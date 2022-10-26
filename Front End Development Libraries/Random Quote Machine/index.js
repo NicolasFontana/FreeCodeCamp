@@ -91,7 +91,7 @@ const App = () => {
             <h5 id="text" className="card-title">"{randomQuote.text}"</h5>
             <p id="author" className="card-text">- {randomQuote.author ? randomQuote.author : "Unknown"}</p>
             <div className="d-flex justify-content-end">
-              <a id="tweet-quote" onMouseEnter={handleMouseEnterLink} onMouseLeave={handleMouseLeaveLink} style={linkStyle} className="btn btn-primary inline" href={linkTwitter} target="_blank"><i class="fa-brands fa-twitter"></i></a>
+              <a id="tweet-quote" onMouseEnter={handleMouseEnterLink} onMouseLeave={handleMouseLeaveLink} style={linkStyle} className="btn btn-primary inline" href={linkTwitter} target="_blank"><i className="fa-brands fa-twitter"></i></a>
               <button id="new-quote" onClick={getNewQuote} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className="btn btn-primary inline ms-2" style={buttonStyle}>New quote</button>
             </div>
           </div>
