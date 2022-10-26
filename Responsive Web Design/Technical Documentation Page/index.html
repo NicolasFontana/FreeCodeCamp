@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <nav id="navbar">
+      <header><h1>HTML Documentation</h1></header>
+      <div class="container-nav">
+        <ul class="list">
+          <li><a href="#getting_started_with_html" class="nav-link">Getting started with HTML</a></li>
+          <li><a href="#what_is_html?" class="nav-link">What is HTML?</a></li>
+          <li><a href="#anatomy_of_an_html_element" class="nav-link">Anatomy of an HTML element</a></li>
+          <li><a href="#attributes" class="nav-link">Attributes</a></li>
+          <li><a href="#anatomy_of_an_html_document" class="nav-link">Anatomy of an HTML document</a></li>
+          <li><a href="#entity_references" class="nav-link">Entity references</a></li>
+          <li><a href="#html_comments" class="nav-link">HTML comments</a></li>
+          <li><a href="#summary" class="nav-link">Summary</a></li>
+        </ul>
+      </div>
+    </nav>
+    <main id="main-doc">
+      <section id="getting_started_with_html" class="main-section">
+        <header><h2>Getting started with HTML</h2></header>
+        <p>In this article we cover the absolute basics of HTML. To get you started, this article defines elements, attributes, and all the other important terms you may have heard. It also explains where these fit into HTML. You will learn how HTML elements are structured, how a typical HTML page is structured, and other important basic language features. Along the way, there will be an opportunity to play with HTML too!</p>
+        <table>
+          <tbody>
+            <tr>
+              <th>Prerequisites:</th>
+              <td>Basic computer literacy, basic software installed, and basic knowledge of working with files.</td>
+            </tr>
+            <tr>
+              <th>Objective:</th>
+              <td>To gain basic familiarity with HTML, and practice writing a few HTML elements.</td>
+            </tr>
+          </tbody>
+        </table>
+        <p></p>
+      </section>
+      <section id="what_is_html?" class="main-section">
+        <header><h2>What is HTML?</h2></header>
+        <p>HTML (HyperText Markup Language) is a markup language that tells web browsers how to structure the web pages you visit. It can be as complicated or as simple as the web developer wants it to be. HTML consists of a series of elements, which you use to enclose, wrap, or mark up different parts of content to make it appear or act in a certain way. The enclosing tags can make content into a hyperlink to connect to another page, italicize words, and so on. For example, consider the following line of text:</p>
+        <pre>
+        <code>My cat is very grumpy</code>
+        </pre>
+        <p>If we wanted the text to stand by itself, we could specify that it is a paragraph by enclosing it in a paragraph (<code><span class="wrapTag"><<span class="textTag">p</span>></span></code>) element:</p>
+        <pre><code><span class="wrapTag"><<span class="textTag">p</span>></span><span>My cat is very grumpy</span><span class="wrapTag"><<span>/</span><span class="textTag">p</span>></span></code></pre>
+      </section>
+      <section id="anatomy_of_an_html_element" class="main-section">
+        <header><h2>Anatomy of an HTML element</h2></header>
+        <p>Let's further explore our paragraph element from the previous section:</p>
+        <img src="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started/grumpy-cat-small.png">
+        <p>The anatomy of our element is:</p>
+        <ul>
+          <li><strong>The opening tag:</strong> This consists of the name of the element (in this example, p for paragraph), wrapped in opening and closing angle brackets. This opening tag marks where the element begins or starts to take effect. In this example, it precedes the start of the paragraph text.</li>
+          <li><strong>The content:</strong> This is the content of the element. In this example, it is the paragraph text.</li>
+          <li><strong>The closing tag:</strong> This is the same as the opening tag, except that it includes a forward slash before the element name. This marks where the element ends. Failing to include a closing tag is a common beginner error that can produce peculiar results.</li>
+        </ul>
+        <p>The element is the opening tag, followed by content, followed by the closing tag.</p>
+        <h3>Nesting elements</h3>
+        <p>Elements can be placed within other elements. This is called nesting. If we wanted to state that our cat is very grumpy, we could wrap the word very in a <code><span><<span class="hyperTag">strong</span>></span></code> element, which means that the word is to have strong(er) text formatting:</p>
+        <pre><code><span class="wrapTag"><<span class="textTag">p</span>></span><span>My cat is <span class="wrapTag"><<span class="textTag">strong</span>></span>very<span class="wrapTag"><<span>/</span><span class="textTag">strong</span>></span> grumpy.</span><span class="wrapTag"><<span>/</span><span class="textTag">p</span>></span></code></pre>
+        <p>
+          There is a right and wrong way to do nesting. In the example above, we opened the <code>p</code> element first, then opened the <code>strong</code> element. For proper nesting, we should close the <code>strong</code> element first, before closing the <code>p</code>.
+        </p>
+        <p>The following is an example of the wrong way to do nesting:</p>
+        <pre class="wrongCode"><code class="inviCode"><span class="wrapTag"><<span class="textTag">p</span>></span><span>My cat is <span class="wrapTag"><<span class="textTag">strong</span>></span>very grumpy.</span><span class="wrapTag"><<span>/</span><span class="textTag">p</span>></span><span class="wrapTag"><<span>/</span><span class="textTag">strong</span>></span></code></pre>
+        <p>The <strong>tags have to open and close in a way that they are inside or outside one another</strong>. With the kind of overlap in the example above, the browser has to guess at your intent. This kind of guessing can result in unexpected results.</p>
+        <h3>Block versus inline elements</h3>
+        <p>There are two important categories of elements to know in HTML: block-level elements and inline elements.</p>
+        <ul>
+          <li>Block-level elements form a visible block on a page. A block-level element appears on a new line following the content that precedes it. Any content that follows a block-level element also appears on a new line. Block-level elements are usually structural elements on the page. For example, a block-level element might represent headings, paragraphs, lists, navigation menus, or footers. A block-level element wouldn't be nested inside an inline element, but it might be nested inside another block-level element.</li>
+          <li>Inline elements are contained within block-level elements, and surround only small parts of the document's content (not entire paragraphs or groupings of content). An inline element will not cause a new line to appear in the document. It is typically used with text, for example an <code><span><<span class="hyperTag">a</span>></span></code> element creates a hyperlink, and elements such as <code><span><<span class="hyperTag">em</span>></span></code> or <code><span><<span class="hyperTag">strong</span>></span></code> create emphasis.</li>
+        </ul>
+        <p>Consider the following example:</p>
+        <pre><code><span class="wrapTag"><<span class="textTag">em</span>></span>first<span class="wrapTag"><<span>/</span><span class="textTag">em</span>></span><span class="wrapTag"><<span class="textTag">em</span>></span>second<span class="wrapTag"><<span>/</span><span class="textTag">em</span>></span><span class="wrapTag"><<span class="textTag">em</span>></span>third<span class="wrapTag"><<span>/</span><span class="textTag">em</span>></span></br><span class="wrapTag"><<span class="textTag">p</span>></span>fourth<span class="wrapTag"><<span>/</span><span class="textTag">p</span>></span>
+<span class="wrapTag"><<span class="textTag">p</span>></span>fifth<span class="wrapTag"><<span>/</span><span class="textTag">p</span class="wrapTag">></span>
+<span class="wrapTag"><<span class="textTag">p</span>></span>sixth<span class="wrapTag"><<span>/</span><span class="textTag">p</span class="wrapTag">></span>
+</code></pre>
+        <p><code><span><<span class="hyperTag">em</span>></span></code> is an inline element. As you see below, the first three elements sit on the same line, with no space in between. On the other hand, <code><span><<span class="hyperTag">p</span>></span></code> is a block-level element. Each p element appears on a new line, with space above and below. (The spacing is due to default <span class="hyperTag">CSS styling</span> that the browser applies to paragraphs.)</p>
+        <h2>Void elements</h2>
+        <p>Not all elements follow the pattern of an opening tag, content, and a closing tag. Some elements consist of a single tag, which is typically used to insert/embed something in the document. Such elements are called void elements. For example, the <code><span><<span class="hyperTag">img</span>></span></code> element embeds an image file onto a page:</p>
+<pre><code><span class="imgText wrapTag"><<span class="textTag">img</span> <span class="redText">src</span>="<span class="textTag">https://raw.githubusercontent.com/mdn/beginner-html-site/gh-pages/images/firefox-icon.png</span>" <span class="redText">alt</span>="<span class="textTag">Firefox icon</span>" /></span></code></pre>
+        <p>This would output the following:</p>
+        <img src="https://raw.githubusercontent.com/mdn/beginner-html-site/gh-pages/images/firefox-icon.png">
+      </section>
+      <section id="attributes" class="main-section">
+        <header><h2>Attributes</h2></header>
+        <p>Elements can also have attributes. Attributes look like this:</p>
+        <img src="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started/grumpy-cat-attribute-small.png">
+        <p>Attributes contain extra information about the element that won't appear in the content. In this example, the <code>class</code> attribute is an identifying name used to target the element with style information.</p>
+        <p>An attribute should have:</p>
+        <ul>
+          <li>A space between it and the element name. (For an element with more than one attribute, the attributes should be separated by spaces too.)</li>
+          <li>The attribute name, followed by an equal sign.</li>
+          <li>An attribute value, wrapped with opening and closing quote marks.</li>
+        </ul>
+        <h3>Active learning: Adding attributes to an element</h3>
+        <p>Another example of an element is <code><span><<span class="hyperTag">a</span>></span></code>. This stands for anchor. An anchor can make the text it encloses into a hyperlink. Anchors can take a number of attributes, but several are as follows:</p>
+        <code>href</code>
+        <p>This attribute's value specifies the web address for the link. For example: <code>href="https://www.mozilla.org/".</code></p>
+        <code>title</code>
+        <p>The <code>title</code> attribute specifies extra information about the link, such as a description of the page that is being linked to. For example, <code>title="The Mozilla homepage"</code>. This appears as a tooltip when a cursor hovers over the element.</p>
+        <code>target</code>
+        <p>The <code>target</code> attribute specifies the browsing context used to display the link. For example, <code>target="_blank"</code> will display the link in a new tab. If you want to display the linked content in the current tab, just omit this attribute.</p>
+        <p>Edit the line below in the Input area to turn it into a link to your favorite website.</p>
+        <ol>
+          <li>Add the <code><span><<span>a</span>></span></code> element.</li>
+          <li>Add the <code>href</code> attribute and the <code>title</code> attribute.</li>
+          <li>Specify the <code>target</code> attribute to open the link in the new tab.</li>
+        </ol>
+        <p>You will be able to see your changes update live in the Output area. You should see a link—that when hovered over—displays the value of the <code>title</code> attribute and, when clicked, opens a new tab and navigates to the web address in the <code>href</code> attribute. Remember that you need to include a space between the element name, and between each attribute.</p>
+        <p>If you make a mistake, you can always reset it using the <i>Reset</i> button. If you get really stuck, press the <i>Show solution</i> button to see the answer.</p>
+      </section>
+      <section id="anatomy_of_an_html_document" class="main-section">
+        <header><h2>Anatomy of an HTML document</h2></header>
+        <p>Individual HTML elements aren't very useful on their own. Here we have:</p>
+        <ol>
+          <li><code><span><</span>!DOCTYPE html></code>: The doctype. When HTML was young (1991-1992), doctypes were meant to act as links to a set of rules that the HTML page had to follow to be considered good HTML. Doctypes used to look something like this:
+            <pre><code class="codeWrap wrapTag"><span><</span>!DOCTYPE html PUBLIC <span class="textTag">"-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"></span></code></pre>
+            <p>More recently, the doctype is a historical artifact that needs to be included for everything else to work right. <code><span><</span>!DOCTYPE html></code> is the shortest string of characters that counts as a valid doctype. That is all you need to know!
+</p>
+          </li>
+          <li><code><span><</span>html><span><</span>/html></code>: The <code><span><</span>html></code> element. This element wraps all the content on the page. It is sometimes known as the root element.</li>
+          <li><code><span><</span>head><span><</span>/head></code>: The <code><span><</span>head></code> element. This element acts as a container for everything you want to include on the HTML page, that isn't the content the page will show to viewers. This includes keywords and a page description that would appear in search results, CSS to style content, character set declarations, and more. You will learn more about this in the next article of the series.</li>
+          <li><code><span><</span>meta charset="utf-8"></code>: The <code><span><</span>meta></code> element. This element represents metadata that cannot be represented by other HTML meta-related elements, like <code><span><</span>base></code>, <code><span><</span>link></code>, <code><span><</span>script></code>, <code><span><</span>style></code> or <code><span><</span>title></code>. The charset attributes sets the character set for your document to UTF-8, which includes most characters from the vast majority of human written languages. With this setting, the page can now handle any textual content it might contain. There is no reason not to set this, and it can help avoid some problems later.</li>
+          <li><code><span><</span>title><span><</span>/title><span></span></code>: The <code><span><</span>title></code> element. This sets the title of the page, which is the title that appears in the browser tab the page is loaded in. The page title is also used to describe the page when it is bookmarked.</li>
+          <li><code><span><</span>body><span><</span>/body></code>: The <code><span><</span>body></code> element. This contains all the content that displays on the page, including text, images, videos, games, playable audio tracks, or whatever else.</li>
+        </ol>
+        <h3>Active learning: Adding some features to an HTML document</h3>
+        <p>If you want to experiment with writing some HTML on your local computer, you can:</p>
+        <ol>
+          <li>Copy the HTML page example listed above.</li>
+          <li>Create a new file in your text editor.</li>
+          <li>Paste the code into the new text file.</li>
+          <li>Save the file as index.html.</li>
+        </ol>
+        <p>You can now open this file in a web browser to see what the rendered code looks like. Edit the code and refresh the browser to see what the result is. Initially the page looks like this:</p>
+        <img src="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started/template-screenshot.png">
+      </section>
+      <section id="entity_references" class="main-section">
+        <header><h2>Entity references</h2></header>
+        <p>In HTML, the characters <code><</code>, <code>></code>,<code>"</code>,<code>'</code> and <code>&</code> are special characters. They are parts of the HTML syntax itself. So how do you include one of these special characters in your text? For example, if you want to use an ampersand or less-than sign, and not have it interpreted as code.</p>
+        <p>You do this with character references. These are special codes that represent characters, to be used in these exact circumstances. Each character reference starts with an ampersand (&), and ends with a semicolon (;).</p>
+        <table>
+          <thead>
+            <tr>
+              <th><strong>Literal character</strong></th>
+              <th><strong>Character reference equivalent</strong></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><</td>
+              <td><code><span>&</span>lt;</code></td>
+            </tr>
+            <tr>
+              <td>></td>
+              <td><code><span>&</span>gt;</code></td>
+            </tr>
+            <tr>
+              <td>"</td>
+              <td><code><span>&</span>quot;</code></td>
+            </tr>
+            <tr>
+              <td>'</td>
+              <td><code><span>&</span>apos;</code></td>
+            </tr>
+            <tr>
+              <td>&</td>
+              <td><code><span>&</span>amp;</code></td>
+            </tr>
+          </tbody>
+        </table>
+        <p>The character reference equivalent could be easily remembered because the text it uses can be seen as less than for '&lt;', quotation for ' &quot; ' and similarly for others. To find more about entity reference, see <a href="https://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references">List of XML and HTML character entity references</a> (Wikipedia).</p>
+        <p>In the example below, there are two paragraphs:</p>
+        <pre><code class="codeWrap"><span class="wrapTag"><<span class="textTag">p</span>></span><span>In HTML, you define a paragraph using the </span><span class="wrapTag"><<span class="textTag">p</span>></span> element.<br><br>
+        <span class="wrapTag"><<span class="textTag">p</span>></span><span>In HTML, you define a paragraph using the <span>&</span>lt;p<span>&</span>gt; element.</span><span class="wrapTag"><<span>/</span><span class="textTag">p</span>></span></code></pre>
+        <p>In the live output below, you can see that the first paragraph has gone wrong. The browser interprets the second instance of <code><span><</span>p></code> as starting a new paragraph. The second paragraph looks fine because it has angle brackets with character references.</p>
+      </section>
+      <section id="html_comments" class="main-section">
+        <header><h2>HTML comments</h2></header>
+        <p>HTML has a mechanism to write comments in the code. Browsers ignore comments, effectively making comments invisible to the user. The purpose of comments is to allow you to include notes in the code to explain your logic or coding. This is very useful if you return to a code base after being away for long enough that you don't completely remember it. Likewise, comments are invaluable as different people are making changes and updates.</p>
+        <p>To write an HTML comment, wrap it in the special markers <code><span><</span>!--</code> and <code>--></code>. For example:</p>
+        <pre><code><p><span class="wrapTag"><<span class="textTag">p</span>></span><span>I'm not inside a comment</span><span class="wrapTag"><<span>/</span><span class="textTag">p</span>></span><br><br><span class="wrapTag"><span><</span>!-- <span><</span>p>I am!<span><</span>/p> --></span></p></code></pre>
+      </section>
+      <section id="summary" class="main-section">
+        <header><h2>Summary</h2></header>
+        <p>You made it to the end of the article! We hope you enjoyed your tour of the basics of HTML.</p>
+        <p>At this point, you should understand what HTML looks like, and how it works at a basic level. You should also be able to write a few elements and attributes. The subsequent articles of this module go further on some of the topics introduced here, as well as presenting other concepts of the language.</p>
+      </section>
+    </main>
+  </body>
+</html>
