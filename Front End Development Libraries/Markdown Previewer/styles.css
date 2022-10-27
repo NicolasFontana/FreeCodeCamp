@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#header {
+  background-color: #373d49;
+}
+
+#preview {
+  overflow-y: scroll;
+  height: 80vh;
+}
+
+#preview img{
+  max-width: 60%;
+}
+
+#editor {
+  height: 80vh;
+}
+
+#preview pre {
+  font-size: 1rem;
+  padding: 0.66001rem 9.5px 9.5px;
+  line-height: 2rem;
+  background: linear-gradient(to bottom,#fff 0,#fff 0.75rem,#f5f7fa 0.75rem,#f5f7fa 2.75rem,#fff 2.75rem,#fff 4rem);
+  background-size: 100% 4rem;
+  border: 1px solid #d3daea;
+  border-radius: 4px;
+}
+
+#preview pre code {
+  font-family: monospace, monospace;
+  padding: 0;
+  font-size: 14px;
+  color: inherit;
+  white-space: pre-wrap;
+  background-color: transparent;
+  border-radius: 0;
+
+}
