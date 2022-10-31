@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#calculator {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+  "dis dis dis dis"
+  "clear clear divide multiply"
+  "seven eight nine subtract"
+  "four five six add"
+  "one two three equal"
+  "zero zero dot equal"
+  ;
+  padding: 0;
+  max-width: 350px;
+}
+
+.padButton {
+  padding:  20px 0;
+  text-align: center;
+  cursor: pointer;
+  background-color: #222f3e;
+  border: 1px solid #000000;
+  color: #FFFFFF;
+}
+
+.padButton:hover {
+  background-color: #576574;
+}
+
+.dis {
+  grid-area: dis;
+  background-color: #8395a7;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.dis input {
+  text-align: end;
+  width: 100%;
+  padding-right: 10px;
+}
+
+.total {
+  padding-right: 10px;
+  display: block;
+}
+
+#equals {
+  grid-area: equal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #2e86de;
+}
+
+#equal:hover {
+  background-color: #54a0ff;
+}
+
+#zero {
+  grid-area: zero;
+}
+
+#clear {
+  grid-area: clear;
+  background-color: #ee5253;
+}
+
+#clear:hover {
+  background-color: #ff6b6b;
+}
