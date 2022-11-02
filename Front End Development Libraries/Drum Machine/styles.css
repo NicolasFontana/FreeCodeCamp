@@ -1,0 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.asd {
+  color: yellow
+}
+
+#display {
+  background: linear-gradient(135deg, #70a1ff, #7bed9f);
+  border: 1px solid black;
+}
