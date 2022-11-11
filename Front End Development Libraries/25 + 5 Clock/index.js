@@ -1,27 +1,15 @@
 const App = () => {
   const [recess, setRecess] = React.useState(5);
   const [session, setSession] = React.useState(25);
+  const [play, setPlay] = React.useState(false);
   const [timingType, setTimingType] = React.useState("SESSION");
   const [timeLeft, setTimeLeft] = React.useState(1500);
-  const [play, setPlay] = React.useState(false);
 
-  const title = timingType === "SESSION" ? "Session" : "Break";
-
-  const alarm = new Audio("./alarm-clock.mp3");
-  const playAlarm = () => {
-    alarm.currentTime = 0;
-    alarm.play();
-  };
-
-  const formatTime = () => {
-    let minutes = Math.floor(timeLeft / 60);
-    let seconds = timeLeft % 60;
-    return (
-      (minutes < 10 ? "0" + minutes : minutes) +
-      ":" +
-      (seconds < 10 ? "0" + seconds : seconds)
-    );
-  };
+  const timeout = setTimeout(() => {
+    if (timeLeft && play) {
+      setTimeLeft(timeLeft - 1);
+    }
+  }, 1000);
 
   const recessDecrement = () => {
     if (recess > 1) {
@@ -67,13 +55,12 @@ const App = () => {
     changeRecessTimeLeft();
   }, [recess]);
 
-  const handleReset = () => {
-    clearTimeout(timeout);
-    setTimingType("SESSION");
-    setPlay(false);
-    setTimeLeft(1500);
-    setRecess(5);
-    setSession(25);
+  const formatTime = () => {
+    const minutes = Math.floor(timeLeft / 60);
+    const seconds = timeLeft - minutes * 60;
+    const formattedSeconds = seconds < 10? '0' + seconds : seconds;
+    const formattedMinutes = minutes < 10? '0' + minutes : minutes;
+    return `${formattedMinutes}:${formattedSeconds}`
   };
 
   const handlePlay = () => {
@@ -81,22 +68,18 @@ const App = () => {
     setPlay(!play);
   };
 
-  const timeout = setTimeout(() => {
-    if (play && timeLeft) {
-      setTimeLeft(timeLeft - 1);
-    }
-  }, 1000);
-
   const changeTimer = () => {
+    const alarm = document.getElementById("beep")
     if (!timeLeft && timingType === "SESSION") {
-      setTimeLeft(recess * 60);
-      setTimingType("BREAK");
-      playAlarm();
+        setTimeLeft(recess * 60);
+        setTimingType("BREAK");
+        alarm.play()
     }
     if (!timeLeft && timingType === "BREAK") {
-      setTimeLeft(session * 60);
-      setTimingType("SESSION");
-      playAlarm();
+        setTimeLeft(session * 60);
+        setTimingType("SESSION");
+        alarm.pause();
+        alarm.currentTime = 0;
     }
   };
 
@@ -112,6 +95,20 @@ const App = () => {
   React.useEffect(() => {
     clock();
   }, [play, timeLeft, timeout]);
+
+  const handleReset = () => {
+    clearTimeout(timeout);
+    setPlay(false);
+    setTimeLeft(1500);
+    setRecess(5);
+    setSession(25);
+    setTimingType("SESSION");
+    const alarm = document.getElementById("beep")
+    alarm.pause();
+    alarm.currentTime = 0;
+  };
+
+  const title = timingType === "SESSION" ? "Session" : "Break";
 
   return (
     <div className="container-fluid bg-dark min-vh-100 text-white">
@@ -186,8 +183,8 @@ const App = () => {
                 <i className="fa-solid fa-pause mx-1"></i>
               </button>
             </div>
-            <button className="btn btn-primary ms-3" onClick={handleReset}>
-              <i id="reset" className="fa-solid fa-rotate mx-2 pe-auto"></i>
+            <button id="reset" className="btn btn-primary ms-3" onClick={handleReset}>
+              <i className="fa-solid fa-rotate mx-2 pe-auto"></i>
             </button>
           </div>
         </div>
@@ -195,6 +192,7 @@ const App = () => {
           <p>Created by Nicolas Fontana</p>
         </div>
       </div>
+      <audio id="beep" preload="auto" src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav"></audio>
     </div>
   );
 };
