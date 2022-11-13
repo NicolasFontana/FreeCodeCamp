@@ -1,66 +1,52 @@
 const App = () => {
-  const [recess, setRecess] = React.useState(5);
-  const [session, setSession] = React.useState(25);
+  const [breakLength, setBreakLength] = React.useState(5);
+  const [sessionLength, setSessionLength] = React.useState(25);
   const [play, setPlay] = React.useState(false);
-  const [timingType, setTimingType] = React.useState("SESSION");
+  const [timingType, setTimingtype] = React.useState("SESSION");
   const [timeLeft, setTimeLeft] = React.useState(1500);
 
   const timeout = setTimeout(() => {
-    if (timeLeft && play) {
+    if (play) {
       setTimeLeft(timeLeft - 1);
     }
   }, 1000);
 
-  const recessDecrement = () => {
-    if (recess > 1) {
-      setRecess((prev) => prev - 1);
+  const handleBreakIncrease = () => {
+    if (breakLength < 60) {
+      setBreakLength(breakLength + 1);
     }
   };
 
-  const recessIncrement = () => {
-    if (recess < 60) {
-      setRecess((prev) => prev + 1);
+  const handleBreakDecrease = () => {
+    if (breakLength > 1) {
+      setBreakLength(breakLength - 1);
     }
   };
 
-  const sessionDecrement = () => {
-    if (session > 1) {
-      setSession((prev) => prev - 1);
+  const handleSessionIncrease = () => {
+    if (sessionLength < 60) {
+      setSessionLength(sessionLength + 1);
+      setTimeLeft(timeLeft + 60);
     }
   };
 
-  const sessionIncrement = () => {
-    if (session < 60) {
-      setSession((prev) => prev + 1);
+  const handleSessionDecrease = () => {
+    if (sessionLength > 1) {
+      setSessionLength(sessionLength - 1);
+      setTimeLeft(timeLeft - 60);
     }
   };
 
-  function changeSessionTimeLeft() {
-    if (timingType === "SESSION") {
-      setTimeLeft(session * 60);
-    }
-  }
-
-  React.useEffect(() => {
-    changeSessionTimeLeft();
-  }, [session]);
-
-  function changeRecessTimeLeft() {
-    if (timingType === "BREAK") {
-      setTimeLeft(recess * 60);
-    }
-  }
-
-  React.useEffect(() => {
-    changeRecessTimeLeft();
-  }, [recess]);
-
-  const formatTime = () => {
-    const minutes = Math.floor(timeLeft / 60);
-    const seconds = timeLeft - minutes * 60;
-    const formattedSeconds = seconds < 10? '0' + seconds : seconds;
-    const formattedMinutes = minutes < 10? '0' + minutes : minutes;
-    return `${formattedMinutes}:${formattedSeconds}`
+  const handleReset = () => {
+    clearTimeout(timeout);
+    setPlay(false);
+    setTimeLeft(1500);
+    setBreakLength(5);
+    setSessionLength(25);
+    setTimingtype("SESSION");
+    const audio = document.getElementById("beep");
+    audio.pause();
+    audio.currentTime = 0;
   };
 
   const handlePlay = () => {
@@ -68,25 +54,32 @@ const App = () => {
     setPlay(!play);
   };
 
-  const changeTimer = () => {
-    const alarm = document.getElementById("beep")
-    if (!timeLeft && timingType === "SESSION") {
-        setTimeLeft(recess * 60);
-        setTimingType("BREAK");
-        alarm.play()
+  const resetTimer = () => {
+    const audio = document.getElementById("beep");
+    if (timingType === "SESSION") {
+      setTimeout(() => {
+        setTimingtype("BREAK");
+        setTimeLeft(breakLength * 60);
+        audio.currentTime = 0;
+        audio.play();
+      }, 1000)
     }
-    if (!timeLeft && timingType === "BREAK") {
-        setTimeLeft(session * 60);
-        setTimingType("SESSION");
-        alarm.pause();
-        alarm.currentTime = 0;
+    if (timingType === "BREAK") {
+      setTimeout(() => {
+        setTimingtype("SESSION");
+        setTimeLeft(sessionLength * 60);
+        audio.currentTime = 0;
+        audio.play();
+      }, 1000)
     }
   };
 
   const clock = () => {
     if (play) {
       timeout;
-      changeTimer();
+      if (timeLeft == 0) {
+        resetTimer();
+      }
     } else {
       clearTimeout(timeout);
     }
@@ -96,16 +89,12 @@ const App = () => {
     clock();
   }, [play, timeLeft, timeout]);
 
-  const handleReset = () => {
-    clearTimeout(timeout);
-    setPlay(false);
-    setTimeLeft(1500);
-    setRecess(5);
-    setSession(25);
-    setTimingType("SESSION");
-    const alarm = document.getElementById("beep")
-    alarm.pause();
-    alarm.currentTime = 0;
+  const timeFormatter = () => {
+    const minutes = Math.floor(timeLeft / 60);
+    const seconds = timeLeft - minutes * 60;
+    const formattedSeconds = seconds < 10 ? "0" + seconds : seconds;
+    const formattedMinutes = minutes < 10 ? "0" + minutes : minutes;
+    return `${formattedMinutes}:${formattedSeconds}`;
   };
 
   const title = timingType === "SESSION" ? "Session" : "Break";
@@ -129,15 +118,15 @@ const App = () => {
             <button
               id="break-decrement"
               className="btn btn-primary me-3"
-              onClick={play ? null : recessDecrement}
+              onClick={play ? null : handleBreakDecrease}
             >
               -
             </button>
-            <span id="break-length">{recess}</span>
+            <span id="break-length">{breakLength}</span>
             <button
               id="break-increment"
               className="btn btn-primary ms-3"
-              onClick={play ? null : recessIncrement}
+              onClick={play ? null : handleBreakIncrease}
             >
               +
             </button>
@@ -146,15 +135,15 @@ const App = () => {
             <button
               id="session-decrement"
               className="btn btn-primary me-3"
-              onClick={play ? null : sessionDecrement}
+              onClick={play ? null : handleSessionDecrease}
             >
               -
             </button>
-            <span id="session-length">{session}</span>
+            <span id="session-length">{sessionLength}</span>
             <button
               id="session-increment"
               className="btn btn-primary ms-3"
-              onClick={play ? null : sessionIncrement}
+              onClick={play ? null : handleSessionIncrease}
             >
               +
             </button>
@@ -170,15 +159,15 @@ const App = () => {
                 {title}
               </p>
               <span id="time-left" className="fs-2">
-                {formatTime()}
+                {timeFormatter()}
               </span>
             </div>
           </div>
         </div>
         <div className="row mt-4 text-center">
           <div className="col-12">
-            <div id="start_stop" className="mx-2 d-inline-block pe-auto">
-              <button className="btn btn-primary" onClick={handlePlay}>
+            <div className="mx-2 d-inline-block pe-auto">
+              <button id="start_stop" className="btn btn-primary" onClick={handlePlay}>
                 <i className="fa-solid fa-play mx-1"></i>
                 <i className="fa-solid fa-pause mx-1"></i>
               </button>
