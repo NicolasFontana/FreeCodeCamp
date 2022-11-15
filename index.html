@@ -1,87 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/c3b7e2591d.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
-    <link rel="stylesheet" href="styles.css">
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/c3b7e2591d.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-      <navbar id="navbar">
+    <header>
+      <navbar class="nav">
         <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#about">SOBRE MI</a></li>
+          <li><a href="#projects">PROYECTOS</a></li>
+          <li><a href="#contact">CONTACTO</a></li>
         </ul>
       </navbar>
+    </header>
     <main>
       <section id="welcome-section">
-        <h1 class="animate__animated animate__backInLeft project-tile">Hi! I'm <span class="textGreenGradient">Nicolas.</span><br>I'm a <span class="underlineGreenGradient">full stack developer.</span></h1>
+        <div>
+          <h1 class="animate__animated animate__backInLeft project-tile">
+            Hola! Soy <span class="textGreenGradient">Nicolás Fontana.</span
+            ><br />
+            <span class="underlineGreenGradient">Front End Developer.</span>
+          </h1>
+          <div class="navContainer animate__animated animate__backInLeft animate__delay-1s">
+            <a href="https://github.com/NicolasFontana" class="cta-btn cta-btn--hero"><i class="fa-brands fa-github"></i
+              > GITHUB</a>
+            <a href="https://www.linkedin.com/in/nico-fontana" class="cta-btn cta-btn--hero"><i class="fa-brands fa-linkedin"></i
+              > LINKEDIN</a>
+            <a href="https://drive.google.com/file/d/1BblUHARpaC3XRvwoioxCs_--wdGYLiPT/view?usp=sharing" class="cta-btn cta-btn--hero"><i class="fa-solid fa-file-pdf"></i> CURRICULUM</a>
+          </div>
+        </div>
       </section>
       <section id="about">
         <div class="containerAbout">
-          <h2>ABOUT</h2>
-          <div class="containerAboutTwo">
-            <img class="imgCode" src="https://cdn.stocksnap.io/img-thumbs/960w/laptop-computer_W0RUS6FWBJ.jpg" loading="lazy">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed nunc eu nisi ultricies mollis. Ut viverra enim vitae rhoncus elementum. Mauris nec consequat mauris. Proin eu urna interdum, mattis odio nec, aliquet massa. Vestibulum venenatis iaculis aliquam. Duis porttitor pulvinar mauris et pharetra. Proin volutpat tempor efficitur. Integer id interdum arcu. Nam vulputate rutrum congue.
-            Curabitur sagittis eros nunc, et finibus tortor tempor porta. Nullam vitae diam vel enim condimentum facilisis vel a lectus. Sed non purus id dolor condimentum volutpat. Phasellus semper tincidunt erat ac bibendum.</p>
+          <h2>SOBRE MI</h2>
+          <div class="containerAboutTwo" data-aos="flip-right">
+            <div class="aboutMe">
+              <h3>Quién soy?</h3>
+              <div class="about">
+                <p>
+                  Soy una persona autodidacta y persistente, disfruto el proceso
+                  de aprendizaje al estar enfrentándome a un nuevo desafío.
+                  Estudiar ingeniería en éstos últimos años me ha brindado
+                  herramientas para la resolución de problemas, logré abordarlos
+                  aplicando lógica y razonamiento para llegar a un óptimo
+                  desenlace.
+                </p>
+                <p>
+                  Me apasiona el desarrollo de la tecnología, programación e
+                  innovación del mundo digital. Estoy buscando desarrollarme en
+                  el ámbito profesional como
+                  <strong>Front End Developer</strong> con proyectos que
+                  permitan desplegar mis habilidades. Si bien se trata de un
+                  camino que está en constante evolución, me entusiasma explorar
+                  nuevas tecnologías y mantenerme actualizado.
+                </p>
+              </div>
+            </div>
+            <div class="skillsContainer">
+              <h3>Skills</h3>
+              <div class="mySkills">
+                <div class="skill">
+                  <img
+                    src="./src/media/icons/html.png"
+                    alt="html5 logo"
+                  /><br /><span>HTML</span>
+                </div>
+                <div class="skill">
+                  <img
+                    src="./src/media/icons/css3.png"
+                    alt="css3 logo"
+                  /><br /><span>CSS</span>
+                </div>
+                <div class="skill">
+                  <img
+                    src="./src/media/icons/sass.png"
+                    alt="sass logo"
+                  /><br /><span>SASS</span>
+                </div>
+                <div class="skill">
+                  <img
+                    src="./src/media/icons/bootstrap.png"
+                    alt="bootstrap logo"
+                  /><br /><span>Bootstrap</span>
+                </div>
+                <div class="skill">
+                  <img
+                    src="./src/media/icons/javascript.png"
+                    alt="javascript logo"
+                  /><br /><span>JavaScript</span>
+                </div>
+                <div class="skill">
+                  <img
+                    src="./src/media/icons/react.png"
+                    alt="react logo"
+                  /><br /><span>React</span>
+                </div>
+                <div class="skill">
+                  <img
+                    src="./src/media/icons/redux.png"
+                    alt="redux logo"
+                  /><br /><span>Redux</span>
+                </div>
+                <div class="skill">
+                  <img
+                    src="./src/media/icons/node-js.png"
+                    alt="nodejs logo"
+                  /><br /><span>NodeJS</span>
+                </div>
+                <div class="skill">
+                  <img
+                    src="./src/media/icons/express.png"
+                    alt="mongodb logo"
+                  /><br /><span>ExpressJS</span>
+                </div>
+                <div class="skill">
+                  <img
+                    src="./src/media/icons/mongodb.png"
+                    alt="mongodb logo"
+                  /><br /><span>MongoDB</span>
+                </div>
+                <div class="skill">
+                  <img
+                    src="./src/media/icons/icons8-api-96.png"
+                    alt="api restful logo"
+                  /><br /><span>API RESTful</span>
+                </div>
+                <div class="skill">
+                  <img
+                    src="./src/media/icons/github.png"
+                    alt="github logo"
+                  /><br /><span>Github</span>
+                </div>
+                <div class="skill">
+                  <img
+                    src="./src/media/icons/git.png"
+                    alt="git logo"
+                  /><br /><span>GIT</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
       <section id="projects">
-        <h2>PROJECTS</h2>
+        <h2>PROYECTOS</h2>
         <div class="containerProjects">
-          <a href="./Responsive Web Design/Survey Form/index.html" target="_blank" class="card project-tile">
-            <img src="https://i.ibb.co/1X3fZY2/Random-Quote.png" class="imgProject" loading="lazy" />
-            <p class="projectTitle">Survey Form</p>
-          </a>
-          <a href="./Responsive Web Design/Tribute Page/index.html" target="_blank" class="card">
-            <img src="https://i.ibb.co/pxRfh9p/Blog.png" class="imgProject" loading="lazy">
-            <p class="projectTitle">Tribute Page</p>
-          </a>
-          <a href="./Responsive Web Design/Technical Documentation Page/index.html" target="_blank" class="card">
-            <img src="https://i.ibb.co/4gX5DVZ/Documentacion-JS.png" class="imgProject" loading="lazy">
-            <p class="projectTitle">Technical Documentation Page</p>
-          </a>
-          <a href="./Responsive Web Design/Product Landing Page/index.html" target="_blank" class="card">
-            <img src="https://i.ibb.co/7Qygdqm/Landing-Page.png" class="imgProject" loading="lazy">
-            <p class="projectTitle">Product Lading Page</p>
-          </a>
-          <a href="./Front End Development Libraries/Random Quote Machine/index.html" target="_blank" class="card">
-            <img src="https://i.ibb.co/HKqh13J/Random-Quote.png" class="imgProject" loading="lazy">
-            <p class="projectTitle">Random Quote Machine</p>
-          </a>
-          <a href="./Front End Development Libraries/Markdown Previewer/index.html" target="_blank" class="card">
-            <img src="https://i.ibb.co/8zm231h/Markdown-Previewer.png" class="imgProject" loading="lazy">
-            <p class="projectTitle">Markdown Previewer</p>
-          </a>
-          <a href="./Front End Development Libraries/Javascript Calculator/index.html" target="_blank" class="card">
-            <img src="https://i.ibb.co/kxbGJDv/Javascript-Calculator.png" class="imgProject" loading="lazy">
-            <p class="projectTitle">Javascript Calculator</p>
-          </a>
-          <a href="./Front End Development Libraries/Drum Machine/index.html" target="_blank" class="card">
-            <img src="https://i.ibb.co/YRwsPp8/Drum-Machine.png" class="imgProject" loading="lazy">
-            <p class="projectTitle">Drum Machine</p>
-          </a>
+          <div class="containerProject">
+            <div class="info" data-aos="fade-right">
+              <h3 class="projectTitle">Survey Form</h3>
+              <div class="projectTools">
+                <span class="tool">HTML</span>
+                <span class="tool">CSS</span>
+                <span class="tool">React</span>
+              </div>
+              <p class="projectDescription">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos
+                voluptates quia voluptatem dolor alias iusto consequuntur rem
+                perferendis! Quisquam dolore sequi molestias praesentium
+                voluptatem nesciunt ea, eos nihil id nam.
+              </p>
+              <div class="buttonsContainer">
+                <a
+                  href="./Responsive Web Design/Survey Form/index.html"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  class="cta-btn cta-btn--hero"
+                  >DEMO</a
+                >
+                <a
+                  href="./Responsive Web Design/Survey Form/index.html"
+                  target="_blank"
+                  class="cta-btn cta-btn--hero"
+                  ><i class="fa-brands fa-github github"></i>CODE</a
+                >
+              </div>
+            </div>
+            <div class="image" data-aos="fade-left">
+              <img
+                src="https://i.ibb.co/1X3fZY2/Random-Quote.png"
+                class=""
+                loading="lazy"
+              />
+            </div>
+          </div>
         </div>
       </section>
-      <section id="contact">
-        <h2>CONTACT</h2>
-        <div class="containerContact">
-          <a id="profile-link" href="https://github.com/NicolasFontana" target="_blank"><i class="fa-brands fa-github"></i></a>
-          <a href="https://linkedin.com/in/nico-fontana" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-          <a href="#"><i class="fa-regular fa-envelope"></i></a>
-          <a href="#"><i class="fa-solid fa-phone"></i></a>
-        </div>
-      </section>
+      <footer>
+        <section id="footer">
+          <a href="#welcome-section" class="backToTop"
+            ><i class="fa-solid fa-angle-up"></i
+          ></a>
+          <div class="containerContact">
+            <a
+              id="profile-link"
+              href="https://github.com/NicolasFontana"
+              target="_blank"
+              ><i class="fa-brands fa-github"></i
+            ></a>
+            <a href="https://linkedin.com/in/nico-fontana" target="_blank"
+              ><i class="fa-brands fa-linkedin"></i
+            ></a>
+            <a href="#"><i class="fa-solid fa-file-pdf"></i></a>
+          </div>
+        </section>
+      </footer>
     </main>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
   </body>
 </html>
