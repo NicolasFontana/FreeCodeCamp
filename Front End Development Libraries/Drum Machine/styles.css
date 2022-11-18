@@ -5,8 +5,12 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+html {
+  background-color: #343a40;
+}
+
 #drum-machine {
-  height: 100vh;
+  height: 100%;
 }
 
 h1 {
@@ -68,6 +72,7 @@ h1 {
 .range {
   width: 250px;
   height: 15px;
+  appearance: none;
   -webkit-appearance: none;
   background: #34495e;
   outline: none;
@@ -76,6 +81,7 @@ h1 {
   box-shadow: inset 0 0 5px #34495e;
 }
 .range::-webkit-slider-thumb {
+  appearance: none;
   -webkit-appearance: none;
   width: 15px;
   height: 15px;
@@ -197,8 +203,7 @@ hr {
 
 footer {
   width: 100%;
-  position: fixed;
-  bottom: 0;
+  padding: 20px;
 }
 
 p {

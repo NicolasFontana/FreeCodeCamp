@@ -71,7 +71,7 @@ const App = () => {
   const [volume, setVolume] = React.useState(1);
   const [recording, setRecording] = React.useState("");
   const [speed, setSpeed] = React.useState(1);
-  const [power, setPower] = React.useState(true)
+  const [keyPressed, setKeyPressed] = React.useState("");
 
   const playRecording = () => {
     let index = 0;
@@ -80,11 +80,9 @@ const App = () => {
       const audioTag = document.getElementById(recordArray[index]);
       const audioButton = document.getElementById(key[recordArray[index]]);
       audioButton.classList.add("drum-active");
-      console.log(audioButton);
       setTimeout(() => {
         audioButton.classList.remove("drum-active");
       }, (1 / speed) * 300);
-      console.log(audioButton);
       audioTag.volume = volume;
       audioTag.currentTime = 0;
       audioTag.play();
@@ -100,16 +98,24 @@ const App = () => {
     setRecording(recording.slice(0, recording.length - 1));
   };
 
+  React.useEffect(() => {
+    if(recording == "") {
+      setKeyPressed("")
+    }
+  }, [recording])
+
   return (
     <div id="drum-machine" className="bg-dark">
       <h1 className="text-white">Drum Machine</h1>
       <div className="containerMachine">
         <div id="display">
-          <h2>let's play</h2>
+          <h2>{keyPressed ? keyPressed : "let's play"}</h2>
         </div>
         <div className="pad">
           <div className="volumeContainer">
-            <p className="volume">Volume: {Math.round(Number(volume) * 100)}%</p>
+            <p className="volume">
+              Volume: {Math.round(Number(volume) * 100)}%
+            </p>
             <input
               type="range"
               className="range"
@@ -129,6 +135,7 @@ const App = () => {
                   clip={clip}
                   volume={volume}
                   setRecording={setRecording}
+                  setKeyPressed={setKeyPressed}
                 />
               );
             })}
@@ -140,9 +147,7 @@ const App = () => {
               <div className="controlsContainer">
                 <div className="buttonControlContainer">
                   <div className="buttonBorder">
-                    <button onClick={playRecording}>
-                      Play
-                    </button>
+                    <button onClick={playRecording}>Play</button>
                   </div>
                 </div>
                 <div className="buttonControlContainer">
@@ -155,7 +160,10 @@ const App = () => {
                 <div className="buttonControlContainer">
                   <div className="buttonBorder">
                     <button
-                      onClick={() => setRecording("")}
+                      onClick={() => {
+                        setRecording("");
+                        setKeyPressed("");
+                      }}
                     >
                       Clear
                     </button>
@@ -185,7 +193,7 @@ const App = () => {
   );
 };
 
-const Pad = ({ clip, volume, setRecording }) => {
+const Pad = ({ clip, volume, setRecording, setKeyPressed }) => {
   const [active, setActive] = React.useState(false);
 
   const handleKeyPress = (e) => {
@@ -209,6 +217,7 @@ const Pad = ({ clip, volume, setRecording }) => {
     audioTag.currentTime = 0;
     audioTag.play();
     setRecording((prev) => prev + clip.keyTrigger);
+    setKeyPressed(clip.keyTrigger);
   };
 
   return (
