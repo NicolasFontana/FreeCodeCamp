@@ -102,7 +102,7 @@ const App = () => {
   return (
     <div className="container-fluid bg-dark min-vh-100 text-white">
       <div className="col-12 col-md-8 offset-md-2">
-        <div className="row">
+        <div className="row py-5">
           <h1 className="col text-center my-4">25 + 5 Clock</h1>
         </div>
         <div className="row text-center mt-4">

@@ -201,8 +201,8 @@ h2 {
 
 .skill img:hover {
   transform: scale(1.2);
-  -webkit-filter: none;
-  filter: none;
+  /* -webkit-filter: none;
+  filter: none; */
 }
 
 .skill span {
@@ -244,6 +244,10 @@ h2 {
   text-align: start;
 }
 
+.projectDescription {
+  line-height: 22px;
+}
+
 .containerProject .image {
   text-align: end;
   width: 70%;
@@ -252,6 +256,13 @@ h2 {
 .containerProject .image img {
   max-width: 90%;
   border-radius: 5px;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
+.containerProject .image img:hover {
+  -webkit-filter: none;
+  filter: none;
 }
 
 .projectTitle {
@@ -329,7 +340,7 @@ h2 {
   transition: all .3s cubic-bezier(.19,1,.22,1);
 }
 
-.github {
+.github, .eye {
   margin-right: 5px;
 }
 
