@@ -29,7 +29,6 @@ const App = () => {
   const handleText = (e) => {
     setText(e.target.value)
   }
-  console.log(text)
   return (
     <div className="container-fluid">
       <div id="header" className="row text-center py-1 text-white mb-4">

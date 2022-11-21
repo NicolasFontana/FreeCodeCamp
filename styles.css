@@ -248,6 +248,10 @@ h2 {
   line-height: 22px;
 }
 
+.containerProject .info p.projectDescription:not(:first-of-type) {
+  margin-top: 10px
+}
+
 .containerProject .image {
   text-align: end;
   width: 70%;
