@@ -626,7 +626,7 @@ header {
 }
 
 .scrollToTop.btnActive:hover {
-  transform: translateY(-4px);
+  transform: translateY(-3px);
 }
 
 /* FOOTER */
