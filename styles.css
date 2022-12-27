@@ -12,9 +12,11 @@
   scroll-behavior: smooth;
 }
 
-html {
-  overflow-x: hidden;
+main {
+  width: 100vw;
 }
+
+
 
 body {
   display: flex;
@@ -30,7 +32,7 @@ h2 {
 /* HEADER */
 
 header {
-  width: 100%;
+  width: 100vw;
   position: fixed;
   top: 0;
   left: 0;
@@ -92,7 +94,6 @@ header {
   transform: scale(0.4);
   font-size: var(--font-size);
   cursor: pointer;
-  padding: 30px 15px;
 }
 
 .burger.showHitArea {
@@ -251,6 +252,8 @@ header {
   background: linear-gradient(to right, rgba(245, 245, 245, 0.8), rgba(245, 245, 245, 0.8)),
     url(https://d33wubrfki0l68.cloudfront.net/daac8858fd4a0ccea44f59dfd079c3c16c263f33/c157c/assets/svg/common-bg.svg);
   background-position: center;
+  width: 100%;
+  padding: 0 20px;
 }
 
 .animate__animated.animate__backInLeft {
@@ -607,6 +610,10 @@ header {
 
 /* Back to top */
 
+.containerButtonScroll {
+  max-width: 100vw;
+}
+
 .scrollToTop {
   position: fixed;
   right: 15px;
@@ -811,7 +818,7 @@ header {
     position: fixed;
     left: -100%;
     top: 70px;
-    width: 100%;
+    width: 100vw;
     text-align: center;
     transition: all 0.3s;
     background-color: #f5f6fa;
