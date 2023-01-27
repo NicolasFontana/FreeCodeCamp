@@ -507,6 +507,11 @@ header {
   margin-right: 5px;
 }
 
+.btn-frontback {
+  min-width: 206px;
+  margin-top: 10px
+}
+
 /* ABOUT */
 
 #about {
@@ -618,7 +623,7 @@ header {
   position: fixed;
   right: 15px;
   bottom: -60px;
-  padding: 10px;
+  padding: 10px 13.47px;
   background-color: #fff;
   color: var(--color-lightgreen);
   border-radius: 50%;
