@@ -508,8 +508,8 @@ header {
 }
 
 .btn-frontback {
-  min-width: 206px;
-  margin-top: 10px
+  margin-top: 10px;
+  margin-right: 10px;
 }
 
 /* ABOUT */
@@ -767,6 +767,10 @@ header {
     display: flex;
   }
 
+  .buttonsContainerTwo {
+    display: flex;
+  }
+
   .buttonsContainer a:first-child {
     margin-right: 10px;
   }
@@ -812,6 +816,10 @@ header {
     align-items: center;
   }
 
+  .buttonsContainerTwo {
+    flex-wrap: wrap;
+  }
+
   .cta-btn {
     max-width: 210px;
     width: 50vw;
@@ -821,7 +829,7 @@ header {
   .nav ul {
     display: block;
     position: fixed;
-    left: -100%;
+    left: -120%;
     top: 70px;
     width: 100vw;
     text-align: center;
@@ -843,5 +851,11 @@ header {
 
   .burger {
     display: inline-block;
+  }
+}
+
+@media only screen and (max-width: 535px) {
+  .buttonsContainerTwo {
+    justify-content: center;
   }
 }
